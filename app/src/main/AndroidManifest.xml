@@ -85,7 +85,7 @@
             android:exported="false" />
         <service
             android:name="com.my.kizzy.feature_rpc_base.services.MediaRpcService"
-            android:exported="false"
+            android:exported="true"
             android:foregroundServiceType="mediaPlayback" />
         <service
             android:name="com.my.kizzy.feature_rpc_base.services.NotificationListener"
