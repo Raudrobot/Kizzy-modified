@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -35,6 +35,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kizzy"
         tools:targetApi="tiramisu">
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -50,18 +51,20 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
             </intent-filter>
-            <meta-data android:name="android.app.shortcuts"
+            <meta-data
+                android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
+
         <activity
             android:name=".feature_crash_handler.CrashHandler"
             android:exported="false" />
+
         <activity
             android:name=".feature_rpc_base.services.DialogActivity"
             android:exported="true"
@@ -71,7 +74,9 @@
                 <category android:name="android.intent.category.EMBED" />
             </intent-filter>
         </activity>
-        <activity android:name=".feature_rpc_base.services.ShortcutsActivity"
+
+        <activity
+            android:name=".feature_rpc_base.services.ShortcutsActivity"
             android:exported="true"
             android:theme="@style/ActivityTranslucent">
             <intent-filter>
@@ -80,46 +85,52 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name="com.my.kizzy.feature_rpc_base.services.AppDetectionService"
+            android:exported="true" />
 
-<service
-    android:name="com.my.kizzy.feature_rpc_base.services.AppDetectionService"
-    android:exported="true" />
-<service
-    android:name="com.my.kizzy.feature_rpc_base.services.MediaRpcService"
-    android:exported="true"
-    android:foregroundServiceType="mediaPlayback" />
-<service
-    android:name="com.my.kizzy.feature_rpc_base.services.NotificationListener"
-    android:exported="false"
-    android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
-    <intent-filter>
-        <action android:name="android.service.notification.NotificationListenerService" />
-    </intent-filter>
-</service>
-<service
-    android:name="com.my.kizzy.feature_rpc_base.services.CustomRpcService"
-    android:exported="true" />
-<service
-    android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
-    android:enabled="false"
-    android:exported="false">
-    <meta-data
-        android:name="autoStoreLocales"
-        android:value="true" />
-</service>
-<service
-    android:name=".feature_rpc_base.services.ExperimentalRpc"
-    android:exported="true" />
-<service
-    android:name=".feature_rpc_base.services.KizzyTileService"
-    android:icon="@drawable/ic_tile_play"
-    android:label="@string/qs_tile_label"
-    android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="android.service.quicksettings.action.QS_TILE"/>
-    </intent-filter>
-</service>
+        <service
+            android:name="com.my.kizzy.feature_rpc_base.services.MediaRpcService"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <service
+            android:name="com.my.kizzy.feature_rpc_base.services.NotificationListener"
+            android:exported="false"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.my.kizzy.feature_rpc_base.services.CustomRpcService"
+            android:exported="true" />
+
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
+        </service>
+
+        <service
+            android:name=".feature_rpc_base.services.ExperimentalRpc"
+            android:exported="false" />
+
+        <service
+            android:name=".feature_rpc_base.services.KizzyTileService"
+            android:icon="@drawable/ic_tile_play"
+            android:label="@string/qs_tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
