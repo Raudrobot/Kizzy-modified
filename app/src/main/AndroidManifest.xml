@@ -39,7 +39,7 @@
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
-            android:exported="false"
+            android:exported="true"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
@@ -63,7 +63,7 @@
 
         <activity
             android:name=".feature_crash_handler.CrashHandler"
-            android:exported="false" />
+            android:exported="true" />
 
         <activity
             android:name=".feature_rpc_base.services.DialogActivity"
@@ -96,7 +96,7 @@
 
         <service
             android:name="com.my.kizzy.feature_rpc_base.services.NotificationListener"
-            android:exported="false"
+            android:exported="true"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
@@ -109,8 +109,8 @@
 
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
-            android:enabled="false"
-            android:exported="false">
+            android:enabled="true"
+            android:exported="true">
             <meta-data
                 android:name="autoStoreLocales"
                 android:value="true" />
@@ -118,7 +118,7 @@
 
         <service
             android:name=".feature_rpc_base.services.ExperimentalRpc"
-            android:exported="false" />
+            android:exported="true" />
 
         <service
             android:name=".feature_rpc_base.services.KizzyTileService"
